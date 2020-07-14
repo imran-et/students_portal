@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
-    skip_before_action :require_user, only: [:new, :create]
+  skip_before_action :authenticate_student!, only: [:new, :create]
 	before_action :set_student, only: [:show, :edit, :update]
-    before_action :require_same_student, only: [:edit, :update]
+  before_action :require_same_student, only: [:edit, :update]
+
  def index
  	@students = Student.all
 
@@ -12,7 +13,7 @@ class StudentsController < ApplicationController
  end
 
   def my_courses
-    @courses = current_user.courses
+    @courses = current_student.courses
   end
 
 
@@ -62,7 +63,7 @@ class StudentsController < ApplicationController
      def require_same_student
         if current_user != @student
         flash[:notice] = "you can only edit your own profile"
-        redirect_to student_path(current_user)
+        redirect_to student_path(current_student)
      end
      end
 

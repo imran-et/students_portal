@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-	skip_before_action :require_user
+	skip_before_action :authenticate_student!
 	def index
 		@courses = Course.all
 
