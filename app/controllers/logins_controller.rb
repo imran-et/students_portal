@@ -1,6 +1,6 @@
 class LoginsController < ApplicationController
 
-	skip_before_action :authenticate_student!, only: [:new, :create]
+	before_action :authenticate_student!, only: [:new, :create]
 	
 	def new
 	end
@@ -22,7 +22,7 @@ class LoginsController < ApplicationController
 	def destroy
 		session[:student_id] = nil
 		flash[:notice] = "you have successfully logged out"
-			redirect_to root_path
+		redirect_to courses_path
 
 	end
 

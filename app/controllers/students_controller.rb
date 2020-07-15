@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  skip_before_action :authenticate_student!, only: [:new, :create]
+  # skip_before_action :authenticate_student!, only: [:new, :create]
 	before_action :set_student, only: [:show, :edit, :update]
   before_action :require_same_student, only: [:edit, :update]
 
@@ -42,6 +42,7 @@ class StudentsController < ApplicationController
     def update
     	if @student.update(student_params)
            flash[:notice] = "you have successfully updated your profile"
+          sign_in @student, bypass: true
             redirect_to (@student)
     	else
     		render 'edit'

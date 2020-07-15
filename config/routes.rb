@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :students
-	root 'courses#index'
+  	root to: 'courses#index'
+	get 'courses', to: 'courses#index'
 	get 'courses/new', to: 'courses#new'
 	get 'about', to: 'pages#about'
 	resources :students do
@@ -8,8 +9,6 @@ Rails.application.routes.draw do
 	    get :my_courses
 	    end
 	end
-	get 'login', to: 'logins#new'
-	post 'login', to: 'logins#create'
 	delete 'logout', to: 'logins#destroy'
 	post 'course_enroll', to: 'student_courses#create'
 end
