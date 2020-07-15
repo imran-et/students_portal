@@ -2,14 +2,14 @@
             <ul id="dropdown1" class="dropdown-content">
             <li><%= session_link %></li>
             <% if logged_in? %>
-            <li><%= link_to "profile", student_path(current_user) %></li>
+            <li><%= link_to "profile", student_path(current_student) %></li>
             <% end %>
             <li class="divider"></li>
           </ul>
           <ul id="dropdown2" class="dropdown-content">
             <li><%= session_link %></li>
             <% if logged_in? %>
-            <li><%= link_to "profile", student_path(current_user) %></li>
+            <li><%= link_to "profile", student_path(current_student) %></li>
             <% end %>
             <li class="divider"></li>
           </ul>
@@ -18,18 +18,18 @@
         <nav>
           <div class="container">
           <div class="nav-wrapper">
-            <%= link_to "Punjab university", root_path, class: "brand-logo right" %>
+            <%= link_to "Punjab university", courses_path, class: "brand-logo right" %>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul>
                 <li><%= link_to "My Courses", my_courses_students_path %></li>
             </ul>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-              <li><a href="<%= root_path %>">Courses</a></li>
+              <li><a href="<%= courses_path %>">Courses</a></li>
               <li><%= link_to "Students",students_path %></li>
               <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
               <ul class="sidenav" id="mobile-demo">
-                <li><%= link_to "Courses", root_path %></li>
+                <li><%= link_to "Courses", courses_path %></li>
                 <li><%= link_to "Students",students_path %></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Accounts<i class="material-icons right">arrow_drop_down</i></a></li>
               </ul>

@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row center sign-up-form">
+    <div class="col s12 m12 l12">
+      <div class="card-panel">
+        <h3 class="header"> Sign up</h3>
+        <div class="row" style="text-align: left;">
+
+        <%= form_for(resource, as: resource_name, html: {class: "col s12"}, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autocomplete: "name" %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="input-field col s12">
+            <%= f.label :password %>
+            
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+           <div class="input-field col s12">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit("Sign up" ,class: "btn light gray waves-effect waves-light right")%>
+          </div>
+        <% end %>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+     <%#= render "devise/shared/links" %>
