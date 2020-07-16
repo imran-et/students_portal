@@ -2,3 +2,8 @@
   position: relative !important;
   opacity: 1 !important;
 }
+
+.color_change:hover{
+	color: #102E50 !important;
+	font-size: bold;
+}
