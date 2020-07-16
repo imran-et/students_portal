@@ -21,6 +21,9 @@
             <%= link_to "Punjab university", courses_path, class: "brand-logo right" %>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul>
+              <% if !logged_in? %>
+                <li><%= link_to "Sign Up", new_student_registration_path %></li>
+              <% end %>
                 <li><%= link_to "My Courses", my_courses_students_path %></li>
             </ul>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
